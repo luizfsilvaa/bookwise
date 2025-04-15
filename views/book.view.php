@@ -1,7 +1,7 @@
 <h1 class="mt-6 font-bold text-xl">Detalhes do Livro - <?= $book["title"]; ?></h1>
        
         <section class="mt-6 grid">
-            <a href="/livro.php?id=<?= $book["id"]; ?>" class="p-4 rounded-md border border-slate-700 hover:border-sky-600">
+            <a href="/book.php?id=<?= $book["id"]; ?>" class="p-4 rounded-md border border-slate-700 hover:border-sky-600">
                 <div class="flex gap-4">
                     <div class="w-1/3">Imagem</div>
                     <div>

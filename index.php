@@ -1,8 +1,10 @@
-<?php 
+<?php
+//Requeste will always fall in index.php
 require("data.php");
 
-$view = "index";
+$controller = "index";
 
-require("views/template/app.php");
-?>
-
+if ($uri = isset($_SERVER["PATH_INFO"])) {
+    $controller = str_replace("/", "", $uri);
+}
+require("controllers/{$controller}.controller.php");
