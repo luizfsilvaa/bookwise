@@ -1,3 +1,15 @@
+<?php 
+require("data.php");
+
+$id = $_REQUEST["id"];
+$result = array_filter($books, function($b) use ($id) {
+    return $b["id"] == $id;
+});
+
+$book = array_pop($result);
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -35,22 +47,20 @@
         </nav>
     </header>
     <main class="mx-auto max-w-screen-xl py-6 px-8">
-        <h1 class="mt-6 font-bold text-xl">Detalhes do Livro</h1>
+        <h1 class="mt-6 font-bold text-xl">Detalhes do Livro - <?= $book["title"]; ?></h1>
        
         <section class="mt-6 grid">
-            <a href="/livro.php" class="p-4 rounded-md border border-slate-700 hover:border-sky-600">
+            <a href="/livro.php?id=<?= $book["id"]; ?>" class="p-4 rounded-md border border-slate-700 hover:border-sky-600">
                 <div class="flex gap-4">
                     <div class="w-1/3">Imagem</div>
                     <div>
-                        <div class="font-semibold">Titulo</div>
-                        <div class="font-semibold italic">Autor</div>
+                        <div class="font-semibold"><?= $book["title"]; ?></div>
+                        <div class="font-semibold italic"><?= $book["author"]; ?></div>
                         <div class="text-sm italic">⭐⭐(2 Avaliações)</div>
                     </div>
                 </div>
                 <div class="mt-6">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo eligendi unde aliquam natus
-                    impedit, qui cupiditate perferendis a saepe asperiores sit rem excepturi, culpa corporis! Tempore
-                    sequi sint vero voluptate!
+                    <?= $book["description"]; ?>
                 </div>
             </a>
         </section>

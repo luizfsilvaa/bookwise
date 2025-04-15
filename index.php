@@ -1,3 +1,7 @@
+<?php 
+require("data.php");
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -47,53 +51,22 @@
         </form>
 
 
-        <section class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            <a href="/book.php" class="p-4 rounded-md border border-slate-700 hover:border-sky-600">
-                <div class="flex gap-4">
-                    <div class="w-1/3">Imagem</div>
-                    <div>
-                        <div class="font-semibold">Titulo</div>
-                        <div class="font-semibold italic">Autor</div>
-                        <div class="text-sm italic">⭐⭐(2 Avaliações)</div>
+        <section class="mt-6 mb-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <?php foreach ($books as $book): ?>
+                <a href="/book.php?id=<?= $book["id"]; ?>" class="p-4 rounded-md border border-slate-700 hover:border-sky-600">
+                    <div class="flex gap-4">
+                        <div class="w-1/3">Imagem</div>
+                        <div class="space-y-2">
+                            <div class="font-semibold"><?= $book["title"]; ?></div>
+                            <div class="font-semibold italic"><?= $book["author"]; ?></div>
+                            <div class="text-sm italic">⭐⭐(2 Avaliações)</div>
+                        </div>
                     </div>
-                </div>
-                <div class="mt-6">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo eligendi unde aliquam natus
-                    impedit, qui cupiditate perferendis a saepe asperiores sit rem excepturi, culpa corporis! Tempore
-                    sequi sint vero voluptate!
-                </div>
-            </a>
-
-            <a href="/book.php" class="p-4 rounded-md border border-slate-700 hover:border-sky-600">
-                <div class="flex gap-4">
-                    <div class="w-1/3">Imagem</div>
-                    <div>
-                        <div class="font-semibold">Titulo</div>
-                        <div class="font-semibold italic">Autor</div>
-                        <div class="text-sm italic">⭐⭐(2 Avaliações)</div>
+                    <div class="mt-6">
+                        <?= $book["description"]; ?>
                     </div>
-                </div>
-                <div class="mt-6">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo eligendi unde aliquam natus
-                    impedit, qui cupiditate perferendis a saepe asperiores sit rem excepturi, culpa corporis! Tempore
-                    sequi sint vero voluptate!
-                </div>
-            </a>
-            <a href="/book.php" class="p-4 rounded-md border border-slate-700 hover:border-sky-600">
-                <div class="flex gap-4">
-                    <div class="w-1/3">Imagem</div>
-                    <div>
-                        <div class="font-semibold">Titulo</div>
-                        <div class="font-semibold italic">Autor</div>
-                        <div class="text-sm italic">⭐⭐(2 Avaliações)</div>
-                    </div>
-                </div>
-                <div class="mt-6">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo eligendi unde aliquam natus
-                    impedit, qui cupiditate perferendis a saepe asperiores sit rem excepturi, culpa corporis! Tempore
-                    sequi sint vero voluptate!
-                </div>
-            </a>
+                </a>
+            <?php endforeach; ?>
         </section>
     </main>
 </body>
