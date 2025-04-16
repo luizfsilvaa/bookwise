@@ -11,7 +11,7 @@
 
 <section class="mt-6 mb-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
     <?php foreach ($books as $book): ?>
-        <a href="/book.php?id=<?= $book["id"]; ?>" class="p-4 rounded-md border border-slate-700 hover:border-sky-600">
+        <a title="Card do livro" href="/book.php?id=<?= $book["id"]; ?>" class="p-4 rounded-md border border-slate-700 hover:border-sky-600">
             <div class="flex gap-4">
                 <div class="w-1/3">Imagem</div>
                 <div class="space-y-2">
